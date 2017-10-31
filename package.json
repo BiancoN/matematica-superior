@@ -1,0 +1,23 @@
+{
+  "name": "aproximacion-por-minimos-cuadrados",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BiancoN/matematica-superior.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BiancoN/matematica-superior/issues"
+  },
+  "homepage": "https://github.com/BiancoN/matematica-superior#readme",
+  "devDependencies": {
+    "electron": "1.7.9"
+  }
+}
