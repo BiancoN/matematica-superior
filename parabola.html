@@ -112,9 +112,9 @@
         $("#tablaResultados").append("<tr><td>Σ</td><td>"+sumx+"</td>"+"<td>"+sumy+"</td>"+"<td>"+sumxx+"</td>"+"<td>"+sumxxx+"</td>"+"<td>"+sumxxxx+"</td>"+"<td>"+sumxy+"</td>"+"<td>"+sumxxy+"</td></tr>");
 
 
-        c = ((sumy*sumxx - sumxxy*n)/(2*sumxx - sumxxxx*n)).toFixed(2);
-        a = ((sumy - c*sumxx)/n).toFixed(2);
+        a = ((sumy*sumxxxx-sumxx*sumxxy)/(n*sumxxxx-sumxx*sumxx)).toFixed(2);
         b = (sumxy/sumxx).toFixed(2);
+        c = ((n*sumxxy-sumy*sumxx)/(sumxxxx-sumxx*sumxx)).toFixed(2);
 
         $("#resultado").html("Funcion aproximada: Y=("+a+")*X^2 +"+" ("+b+")*X + "+" ("+c+")");
 
