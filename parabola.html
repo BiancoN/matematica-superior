@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="principal">
 <head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <meta charset="UTF-8">
     <title>Aproximacion parabólica</title>
 </head>
@@ -52,7 +53,7 @@
 
     <br/>
 
-    <canvas id="line-chart" width="800" height="450"></canvas>
+    <div id="myDiv" ></div>
 
 
 
@@ -118,9 +119,6 @@
 
         $("#resultado").html("Funcion aproximada: Y=("+a+")*X^2 +"+" ("+b+")*X + "+" ("+c+")");
 
-
-        Chart.defaults.global.legend.display = false;
-
         datax=[];
         datay=[];
         labelsValues=[0];
@@ -144,10 +142,9 @@
         console.log(n);
 
         for(i=0;i<n;i++){
-
+            dataset2[i]={x:valores[i][0],y:valores[i][1]};
             datax[i] = valores[i][0];
             datay[i] = valores[i][1];
-            dataset2[i]={x:valores[i][0],y:valores[i][1]};
         }
         console.log(dataset2);
         minimo = arrayMin(datax);
@@ -158,43 +155,36 @@
         for(i=0;i<10;i++){
             labelsValues[i]=minimo+i*((maximo-minimo));
         }
+
+
         dataset1=[];
-        for(i=0;i<=20;i++){
-            x1=((maximo-minimo))*i+minimo;
-            y2=parseInt(c)+x1*parseInt(b)+x1*x1*parseInt(a);
-            dataset1[i]={x:x1,y:y2};
+
+        for(i=0;i<=n;i++){
+
+            dataset1[i]=parseInt(c)+datax[i]*parseInt(b)+datax[i]*datax[i]*parseInt(a);
         }
-        new Chart(document.getElementById("line-chart"), {
-            type: 'line',
-            data: {
-                labels: labelsValues,
-                datasets: [{
-
-                    data: dataset1,
-                    pointRadius: 0,
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, {
-                   /* data: dataset2,
-                    label: "Puntos",
-                    borderColor: "#8e5ea2",
-                    fill: false,
-                    pointRadius: 8,
-                    pointStyle:'crossRot',
 
 
-                    showLine: false // no line shown
-                */}
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'GRAFICA'
-                }
-            }
-        });
 
+
+        var funcion = {
+            x: datax,
+            y: dataset1,
+            type: 'scatter',
+            name: 'Aproximacion funcion'
+        };
+
+        // Valores de la tabla
+        var puntos = {
+            x: datax,
+            y: datay,
+            mode: 'markers',
+            name: 'Puntos tabla'
+        };
+
+        var data = [funcion, puntos];
+
+        Plotly.newPlot('myDiv', data);
 
 
     });

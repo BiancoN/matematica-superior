@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="principal">
 <head>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <meta charset="UTF-8">
     <title>Aproximación lineal</title>
 </head>
@@ -52,7 +53,7 @@
 
     <br/>
 
-    <canvas id="line-chart" width="800" height="450"></canvas>
+    <div id="myDiv" ></div>
 
 
 
@@ -115,7 +116,7 @@
         $("#resultado").html("Funcion aproximada: Y=("+m+")*X +"+" ("+b+")");
 
 
-        Chart.defaults.global.legend.display = false;
+
 
         datax=[];
         datay=[];
@@ -153,76 +154,36 @@
         for(i=0;i<10;i++){
             labelsValues[i]=minimo+i*((maximo-minimo));
         }
+
+
         dataset1=[];
-        for(i=0;i<=20;i++){
-            x1=((maximo-minimo))*i+minimo;
-            y2=parseInt(b)+x1*parseInt(m);
-            dataset1[i]={x:x1,y:y2};
+
+        for(i=0;i<=n;i++){
+
+            dataset1[i]=parseInt(b)+datax[i]*parseInt(m);;
         }
 
-        dataset=[ {
-            x: -2,
-            y: 0
-        }, {
-            x: 0,
-            y: 10
-        }, {
-            x: 10,
-            y: 5
-        }];
 
 
 
+        var funcion = {
+            x: datax,
+            y: dataset1,
+            type: 'scatter',
+            name: 'Aproximacion funcion'
+        };
 
-        /*
+        // Valores de la tabla
+        var puntos = {
+            x: datax,
+            y: datay,
+            mode: 'markers',
+            name: 'Puntos tabla'
+        };
 
+        var data = [funcion, puntos];
 
-
-
-        {
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }
-
-         */
-
-
-        new Chart(document.getElementById("line-chart"), {
-            type: 'line',
-            data: {
-                labels: labelsValues,
-                datasets: [{
-
-                    data: dataset1,
-                    pointRadius: 0,
-                    borderColor: "#3e95cd",
-                    fill: false
-                }, {
-                  /*  data: dataset2,
-                    label: "Puntos",
-                    borderColor: "#8e5ea2",
-                    fill: false,
-                    pointRadius: 8,
-                    pointStyle:'crossRot',
-
-
-                    showLine: false // no line shown
-                */}
-                ]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'GRAFICA'
-                }
-            }
-        });
+        Plotly.newPlot('myDiv', data);
 
 
     });
