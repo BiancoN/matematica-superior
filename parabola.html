@@ -132,66 +132,50 @@
             });
         }
 
+
+
         function arrayMin(array) {
             return array.reduce(function(a, b) {
                 return Math.min(a, b);
             });
         }
 
+        dataset2=[];
+        console.log(n);
 
         for(i=0;i<n;i++){
+
             datax[i] = valores[i][0];
             datay[i] = valores[i][1];
+            dataset2[i]={x:valores[i][0],y:valores[i][1]};
         }
+        console.log(dataset2);
         minimo = arrayMin(datax);
         maximo = arrayMax(datax);
 
 
 
         for(i=0;i<10;i++){
-            labelsValues[i]=minimo+i*((maximo-minimo)/10);
+            labelsValues[i]=minimo+i*((maximo-minimo));
         }
-
-        for(i=0;i<1000;i++){
-            f=i*
-            dataset1[i]=
+        dataset1=[];
+        for(i=0;i<=20;i++){
+            x1=((maximo-minimo))*i+minimo;
+            y2=parseInt(c)+x1*parseInt(b)+x1*x1*parseInt(a);
+            dataset1[i]={x:x1,y:y2};
         }
-
-        for(i=0;i<10;i++){
-            labelsValues[i]=minimo+i*((maximo-minimo)/10);
-        }
-
-
-
-        /*
-
-
-
-
-        {
-                x: -10,
-                y: 0
-            }, {
-                x: 0,
-                y: 10
-            }, {
-                x: 10,
-                y: 5
-            }
-
-         */
         new Chart(document.getElementById("line-chart"), {
             type: 'line',
             data: {
                 labels: labelsValues,
                 datasets: [{
 
-                    data: datax,
+                    data: dataset1,
                     pointRadius: 0,
                     borderColor: "#3e95cd",
                     fill: false
                 }, {
-                    data: datay,
+                   /* data: dataset2,
                     label: "Puntos",
                     borderColor: "#8e5ea2",
                     fill: false,
@@ -200,7 +184,7 @@
 
 
                     showLine: false // no line shown
-                }
+                */}
                 ]
             },
             options: {
@@ -210,6 +194,7 @@
                 }
             }
         });
+
 
 
     });

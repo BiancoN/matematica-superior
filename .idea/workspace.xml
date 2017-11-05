@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="66143a64-63fa-45e8-a904-7eb710f9fbcc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/parabola.html" afterPath="$PROJECT_DIR$/parabola.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recta.html" afterPath="$PROJECT_DIR$/recta.html" />
     </list>
@@ -40,8 +39,8 @@
       <file leaf-file-name="recta.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+            <state relative-caret-position="401">
+              <caret line="212" column="0" lean-forward="true" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -49,8 +48,8 @@
                 <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
-                <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
+                <marker date="1509896584000" expanded="true" signature="2179:2204" ph="..." />
+                <marker date="1509896584000" expanded="true" signature="2276:2301" ph="..." />
               </folding>
             </state>
           </provider>
@@ -59,8 +58,8 @@
       <file leaf-file-name="parabola.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parabola.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="181" column="11" lean-forward="false" selection-start-line="134" selection-start-column="3" selection-end-line="181" selection-end-column="11" />
+            <state relative-caret-position="383">
+              <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -68,8 +67,8 @@
                 <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
-                <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
+                <marker date="1509896584000" expanded="true" signature="2193:2218" ph="..." />
+                <marker date="1509896584000" expanded="true" signature="2290:2315" ph="..." />
               </folding>
             </state>
           </provider>
@@ -370,7 +369,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26333000" />
+    <option name="totallyTimeSpent" value="27964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="40" width="1400" height="833" extended-state="0" />
@@ -552,8 +551,8 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
-            <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2193:2218" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2290:2315" ph="..." />
           </folding>
         </state>
       </provider>
@@ -577,8 +576,8 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
-            <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2179:2204" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2276:2301" ph="..." />
           </folding>
         </state>
       </provider>
@@ -697,8 +696,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parabola.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="181" column="11" lean-forward="false" selection-start-line="134" selection-start-column="3" selection-end-line="181" selection-end-column="11" />
+        <state relative-caret-position="383">
+          <caret line="185" column="23" lean-forward="false" selection-start-line="185" selection-start-column="23" selection-end-line="185" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -706,16 +705,16 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
-            <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2193:2218" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2290:2315" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/recta.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+        <state relative-caret-position="401">
+          <caret line="212" column="0" lean-forward="true" selection-start-line="212" selection-start-column="0" selection-end-line="212" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -723,8 +722,8 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
-            <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2179:2204" ph="..." />
+            <marker date="1509896584000" expanded="true" signature="2276:2301" ph="..." />
           </folding>
         </state>
       </provider>
