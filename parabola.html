@@ -132,21 +132,58 @@
             });
         }
 
+        function arrayMin(array) {
+            return array.reduce(function(a, b) {
+                return Math.min(a, b);
+            });
+        }
 
 
         for(i=0;i<n;i++){
             datax[i] = valores[i][0];
             datay[i] = valores[i][1];
         }
+        minimo = arrayMin(datax);
         maximo = arrayMax(datax);
-        for(i=0;i<=maximo + 1;i++){
-            labelsValues[i]=i;
+
+
+
+        for(i=0;i<10;i++){
+            labelsValues[i]=minimo+i*((maximo-minimo)/10);
         }
 
+        for(i=0;i<1000;i++){
+            f=i*
+            dataset1[i]=
+        }
+
+        for(i=0;i<10;i++){
+            labelsValues[i]=minimo+i*((maximo-minimo)/10);
+        }
+
+
+
+        /*
+
+
+
+
+        {
+                x: -10,
+                y: 0
+            }, {
+                x: 0,
+                y: 10
+            }, {
+                x: 10,
+                y: 5
+            }
+
+         */
         new Chart(document.getElementById("line-chart"), {
             type: 'line',
             data: {
-                labels: datax,
+                labels: labelsValues,
                 datasets: [{
 
                     data: datax,

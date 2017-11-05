@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="675">
-              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recta.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="recta.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/recta.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
+            <state relative-caret-position="164">
+              <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -49,18 +49,18 @@
                 <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509887569000" expanded="true" signature="2179:2204" ph="..." />
-                <marker date="1509887569000" expanded="true" signature="2276:2301" ph="..." />
+                <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
+                <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="parabola.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="parabola.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/parabola.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="147" column="19" lean-forward="true" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
+            <state relative-caret-position="615">
+              <caret line="181" column="11" lean-forward="false" selection-start-line="134" selection-start-column="3" selection-end-line="181" selection-end-column="11" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -68,8 +68,8 @@
                 <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1509887569000" expanded="true" signature="2193:2218" ph="..." />
-                <marker date="1509887569000" expanded="true" signature="2290:2315" ph="..." />
+                <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
+                <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
               </folding>
             </state>
           </provider>
@@ -79,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/potencial.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="654">
-              <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+              <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -98,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/exponencial.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="654">
-              <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+              <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -117,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/hiperbola1.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="672">
-              <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+              <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -136,7 +136,7 @@
         <entry file="file://$PROJECT_DIR$/hiperbola2.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="62" lean-forward="true" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+              <caret line="13" column="62" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
               <folding>
                 <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -193,8 +193,8 @@
         <option value="$PROJECT_DIR$/exponencial.html" />
         <option value="$PROJECT_DIR$/hiperbola1.html" />
         <option value="$PROJECT_DIR$/hiperbola2.html" />
-        <option value="$PROJECT_DIR$/recta.html" />
         <option value="$PROJECT_DIR$/parabola.html" />
+        <option value="$PROJECT_DIR$/recta.html" />
       </list>
     </option>
   </component>
@@ -370,7 +370,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22050000" />
+    <option name="totallyTimeSpent" value="26333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="16" y="40" width="1400" height="833" extended-state="0" />
@@ -552,8 +552,8 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509887569000" expanded="true" signature="2193:2218" ph="..." />
-            <marker date="1509887569000" expanded="true" signature="2290:2315" ph="..." />
+            <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
+            <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
           </folding>
         </state>
       </provider>
@@ -577,8 +577,8 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509887569000" expanded="true" signature="2179:2204" ph="..." />
-            <marker date="1509887569000" expanded="true" signature="2276:2301" ph="..." />
+            <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
+            <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
           </folding>
         </state>
       </provider>
@@ -620,26 +620,9 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
             <element signature="n#style#0;n#ul#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/recta.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="145" column="28" lean-forward="true" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="28" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509887569000" expanded="true" signature="2179:2204" ph="..." />
-            <marker date="1509887569000" expanded="true" signature="2276:2301" ph="..." />
           </folding>
         </state>
       </provider>
@@ -647,7 +630,7 @@
     <entry file="file://$PROJECT_DIR$/potencial.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+          <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -664,7 +647,7 @@
     <entry file="file://$PROJECT_DIR$/exponencial.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="654">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+          <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -681,7 +664,7 @@
     <entry file="file://$PROJECT_DIR$/hiperbola1.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
-          <caret line="95" column="7" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
+          <caret line="95" column="7" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="95" selection-end-column="7" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -698,7 +681,7 @@
     <entry file="file://$PROJECT_DIR$/hiperbola2.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="62" lean-forward="true" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+          <caret line="13" column="62" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -714,8 +697,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/parabola.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="147" column="19" lean-forward="true" selection-start-line="147" selection-start-column="19" selection-end-line="147" selection-end-column="19" />
+        <state relative-caret-position="615">
+          <caret line="181" column="11" lean-forward="false" selection-start-line="134" selection-start-column="3" selection-end-line="181" selection-end-column="11" />
           <folding>
             <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -723,8 +706,25 @@
             <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1509887569000" expanded="true" signature="2193:2218" ph="..." />
-            <marker date="1509887569000" expanded="true" signature="2290:2315" ph="..." />
+            <marker date="1509889066000" expanded="true" signature="2193:2218" ph="..." />
+            <marker date="1509889066000" expanded="true" signature="2290:2315" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/recta.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="161" column="0" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="161" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#td#1;n#tr#1;n#table#0;n#div#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#1;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1509894100000" expanded="true" signature="2179:2204" ph="..." />
+            <marker date="1509894100000" expanded="true" signature="2276:2301" ph="..." />
           </folding>
         </state>
       </provider>
