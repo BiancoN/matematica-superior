@@ -1,19 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html class="principal">
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Matematica Superior</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <h1 class="titulo-principal">Aproximacion por minimos cuadrados</h1>
+    <br/><br/>
+    <ul class="opciones" style=" line-height: 33px;">
+      <li><a href="recta.html">Aproximación lineal</a></li>
+      <li><a href="parabola.html">Aproximacion parabólica</a></li>
+      <li><a href="potencial.html">Aproximacion potencial</a></li>
+      <li><a href="exponencial.html">Aproximación exponencial</a></li>
+      <li><a href="hiperbola1.html">Aproximacion hiperbólica tipo 1</a></li>
+      <li><a href="hiperbola2.html">Aproximacion hiperbólica tipo 2</a></li>
+    </ul>
+
+
+    <br/><br/><br/><br/>
+
+
+    <style>
+        .principal {
+            background-color: rgba(11, 84, 147, 0.74);
+        }
+
+        .titulo-principal {
+            color: #f5c8ba;
+            margin-left: 15%;
+            padding-top:30px;
+            font-size: 30px;
+        }
+
+        .opciones {
+            margin-left: 25%;
+            line-height: 30px;
+            color: whitesmoke;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+
+    </style>
+
 
     <script>
       // You can also require other files to run in this process
-      require('./renderer.js')
+      //require('./renderer.js')
     </script>
+
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </body>
 </html>

@@ -1,0 +1,31 @@
+.casillero {
+    border:none;
+    text-align:center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.inicio {
+    color: wheat;
+    margin-left: 15%;
+    font-size: 14px;
+}
+
+.titulo-principal {
+    color: #2a90c0;
+    margin-left: 15%;
+    padding-top:30px;
+    font-size: 30px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}

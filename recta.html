@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="principal">
+<head>
+    <meta charset="UTF-8">
+    <title>Aproximación lineal</title>
+</head>
+<body>
+
+<h1 class="titulo-principal">Aproximación lineal</h1>
+<p class="inicio"><a href="index.html">Volver al inicio</a></p>
+
+<br/>
+
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<form class="formulario">
+
+
+    <div class="table-responsive">
+        <table id="tablaValores" class="table" style=" width: 98%; margin-left: 1%;">
+            <tr><th>X</th><th>Y</th></tr>
+            <tr><td> <input style="width: 100%; border: 0px;" class="x" type="number"></td>
+                <td><input style="width: 100%; border: 0px;" type="number" class="y"></td></tr>
+        </table>
+    </div>
+
+
+    <br>
+
+  <div class="row-fluid">
+    <button type="button" id="Agregar" class="btn btn-primary" style="margin-bottom: 25px; margin-left: 1%; position: inherit; float: left;">Agregar valor</button>
+    <div class="form-group">
+        <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr" style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
+    </div>
+  </div>
+
+    <br>
+
+    <button type="button" id="Generar" class="btn btn-warning" style=" margin-left: 1%; margin-bottom: 25px;">Generar Tabla</button>
+
+    <br>
+
+    <table id="tablaResultados">
+
+    </table>
+
+    <br>
+
+    <div id="resultado"></div>
+
+
+    <br/>
+
+    <canvas id="line-chart" width="800" height="450"></canvas>
+
+
+
+
+
+</form>
+
+
+<script>
+    // You can also require other files to run in this process
+   //require('./renderer.js')
+
+    require('./jquery-3.2.1.min')
+
+    $( document ).ready(function() {
+        $("#masCampos").click(function() {
+            $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
+                               "<td><input type=\"number\" id=\"valory\" class=\"casillero\"></td></tr>");
+        });
+
+    });
+
+
+    var valores = [];
+    $("#Agregar").click(function(){
+        $("#tablaValores").append("<tr><td> <input rype=\"number\" style=\"width: 100%; border: 0px;\" class=\"x\"></td>" +
+            "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
+    });
+
+
+    $("#Generar").click(function(){
+        valores = [];
+        $("#tablaResultados").html("<tr><th></th><th>X</th><th>Y</th><th>X^2</th><th>YX</th></tr>");
+        $('#tablaValores tr').each(function() {
+            x=parseInt($(this).find(".x").val());
+            y=parseInt($(this).find(".y").val());
+            if($.isNumeric(x)&&$.isNumeric(y)){
+                valores.push([x,y,x*x,x*y]);
+            }
+        });
+        //array.push(values);
+
+        n=valores.length;
+        sumx=0;sumy=0;sumxx=0;sumxy=0;
+        for(i=0;i<valores.length;i++){
+            sumx+= valores[i][0];
+            sumy+=valores[i][1];
+            sumxx+=valores[i][2];
+            sumxy+=valores[i][3];
+            $("#tablaResultados").append("<tr><td></td><td>"+valores[i][0]+"</td>"+"<td>"+valores[i][1]+"</td>"+"<td>"+valores[i][2]+"</td>"+"<td>"+valores[i][3]+"</td></tr>");
+
+        }
+
+        $("#tablaResultados").append("<tr><td>Σ</td><td>"+sumx+"</td>"+"<td>"+sumy+"</td>"+"<td>"+sumxx+"</td>"+"<td>"+sumxy+"</td></tr>");
+
+        m = ((sumxy - (sumx*sumy)/n)/(sumxx-(sumx*sumx)/n)).toFixed(2);
+        b= (sumy/n - m*(sumx/n)).toFixed(2);
+
+
+        $("#resultado").html("Funcion aproximada: Y=("+m+")*X +"+" ("+b+")");
+
+
+        Chart.defaults.global.legend.display = false;
+
+        datax=[];
+        datay=[];
+        labelsValues=[0];
+
+
+        function arrayMax(array) {
+            return array.reduce(function(a, b) {
+                return Math.max(a, b);
+            });
+        }
+
+
+
+        for(i=0;i<n;i++){
+            datax[i] = valores[i][0];
+            datay[i] = valores[i][1];
+        }
+        maximo = arrayMax(datax);
+        for(i=0;i<=maximo + 1;i++){
+            labelsValues[i]=i;
+        }
+
+        new Chart(document.getElementById("line-chart"), {
+            type: 'line',
+            data: {
+                labels: labelsValues,
+                datasets: [{
+
+                    data: datax,
+                    pointRadius: 0,
+                    borderColor: "#3e95cd",
+                    fill: false
+                }, {
+                    data: datay,
+                    label: "Puntos",
+                    borderColor: "#8e5ea2",
+                    fill: false,
+                    pointRadius: 8,
+                    pointStyle:'crossRot',
+
+
+                    showLine: false // no line shown
+                }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'GRAFICA'
+                }
+            }
+        });
+
+
+    });
+
+
+
+
+
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</body>
+</html>

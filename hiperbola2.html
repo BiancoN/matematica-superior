@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html class="principal">
+<head>
+    <meta charset="UTF-8">
+    <title>Aproximacion hiperbólica tipo 2</title>
+</head>
+<body>
+
+<h1 class="titulo-principal">Aproximacion hiperbólica tipo 2</h1>
+<p class="inicio"><a href="index.html">Volver al inicio</a></p>
+
+<br/>
+
+<script>window.$ = window.jQuery = require('jquery');</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+<form class="formulario">
+
+
+    <div class="table-responsive">
+        <table id="tablaValores" class="table" style=" width: 98%; margin-left: 1%;">
+            <tr><th>X</th><th>Y</th></tr>
+            <tr><td> <input style="width: 100%; border: 0px;" class="x" type="number"></td>
+                <td><input style="width: 100%; border: 0px;" type="number" class="y"></td></tr>
+        </table>
+    </div>
+
+
+    <br>
+
+    <div class="row-fluid">
+        <button type="button" id="Agregar" class="btn btn-primary" style="margin-bottom: 25px; margin-left: 1%; position: inherit; float: left;">Agregar valor</button>
+        <div class="form-group">
+            <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr" style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
+        </div>
+    </div>
+
+    <br>
+
+    <button type="button" id="Generar" class="btn btn-warning" style=" margin-left: 1%; margin-bottom: 25px;">Generar Tabla</button>
+
+    <br>
+
+    <table id="tablaResultados">
+
+    </table>
+
+    <br>
+
+    <div id="resultado"></div>
+
+
+    <br/>
+
+    <canvas id="line-chart" width="800" height="450"></canvas>
+
+
+
+
+
+</form>
+
+
+<script>
+    // You can also require other files to run in this process
+    //require('./renderer.js')
+
+    require('./jquery-3.2.1.min')
+
+    $( document ).ready(function() {
+        $("#masCampos").click(function() {
+            $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
+                "<td><input type=\"number\" id=\"valory\" class=\"casillero\"></td></tr>");
+        });
+
+    });
+
+
+    var valores = [];
+    $("#Agregar").click(function(){
+        $("#tablaValores").append("<tr><td> <input rype=\"number\" style=\"width: 100%; border: 0px;\" class=\"x\"></td>" +
+            "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
+    });
+
+
+
+
+
+
+
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="estilos.css">
+<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+</body>
+</html>
