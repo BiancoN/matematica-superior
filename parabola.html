@@ -2,6 +2,8 @@
 <html class="principal">
 <head>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.16.5/math.min.js"></script>
+
     <meta charset="UTF-8">
     <title>Aproximacion parabólica</title>
 </head>
@@ -13,7 +15,7 @@
 <br/>
 
 <script>window.$ = window.jQuery = require('jquery');</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 
 <form class="formulario">
 
@@ -32,7 +34,7 @@
     <div class="row-fluid">
         <button type="button" id="Agregar" class="btn btn-primary" style="margin-bottom: 25px; margin-left: 1%; position: inherit; float: left;">Agregar valor</button>
         <div class="form-group">
-            <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr" style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
+            <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr" value="2" style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
         </div>
     </div>
 
@@ -113,9 +115,32 @@
         $("#tablaResultados").append("<tr><td>Σ</td><td>"+sumx+"</td>"+"<td>"+sumy+"</td>"+"<td>"+sumxx+"</td>"+"<td>"+sumxxx+"</td>"+"<td>"+sumxxxx+"</td>"+"<td>"+sumxy+"</td>"+"<td>"+sumxxy+"</td></tr>");
 
 
-        a = ((sumy*sumxxxx-sumxx*sumxxy)/(n*sumxxxx-sumxx*sumxx)).toFixed(2);
-        b = (sumxy/sumxx).toFixed(2);
-        c = ((n*sumxxy-sumy*sumxx)/(sumxxxx-sumxx*sumxx)).toFixed(2);
+
+        var m = [[n,sumx,sumxx], [sumx,sumxx,sumxxx],[sumxx,sumxxx,sumxxxx]];
+        var s = [sumy,sumxy,sumxxy];
+
+
+        try {
+            var r = math.lusolve(m, s);  // [[8], [9]]
+        }
+        catch(err) {
+            alert("La matriz no puede ser resuelta porque es singular (ingresar mas valores)");
+        }
+
+
+        console.log(m);
+        console.log(s);
+        console.log(n);
+        console.log(r);
+
+        //<div id="pepe" style='display:none'></div>    $("#pepe").show(); / hide()
+
+        redondeo= 10**(parseInt($("#usr").val()));
+        console.log("red"+redondeo);
+
+        a = Math.round(r[2] * redondeo) / redondeo;//((sumy*sumxxxx-sumxx*sumxxy)/(n*sumxxxx-sumxx*sumxx)).toFixed(2);
+        b = Math.round(r[1] * redondeo) / redondeo; //(sumxy/sumxx).toFixed(2);
+        c = Math.round(r[0] * redondeo) / redondeo;//((n*sumxxy-sumy*sumxx)/(sumxxxx-sumxx*sumxx)).toFixed(2);
 
         $("#resultado").html("Funcion aproximada: Y=("+a+")*X^2 +"+" ("+b+")*X + "+" ("+c+")");
 
@@ -151,24 +176,26 @@
         maximo = arrayMax(datax);
 
 
-
-        for(i=0;i<10;i++){
-            labelsValues[i]=minimo+i*((maximo-minimo));
-        }
-
-
         dataset1=[];
 
-        for(i=0;i<=n;i++){
-
-            dataset1[i]=parseInt(c)+datax[i]*parseInt(b)+datax[i]*datax[i]*parseInt(a);
+        for(i=0;i<1000;i++){
+            labelsValues[i]=minimo+i*((maximo-minimo)/1000);
+            dataset1[i]=c+labelsValues[i]*b+labelsValues[i]*labelsValues[i]*a;
         }
+
+
+
+
+     //   for(i=0;i<=n;i++){
+
+          //  dataset1[i]=parseInt(c)+datax[i]*parseInt(b)+datax[i]*datax[i]*parseInt(a);
+       // }
 
 
 
 
         var funcion = {
-            x: datax,
+            x: labelsValues,
             y: dataset1,
             type: 'scatter',
             name: 'Aproximacion funcion'
