@@ -18,7 +18,6 @@ $("#Agregar").click(function(){
 $("#Generar").click(function(){
     valores = [];
     valoresLineales = [];
-    valoresGrafico = [];
     $("#tablaResultados").html("<tr><th></th><th>x</th><th>y</th><th>X = ln x</th><th>Y = ln y</th><th>X^2</th><th>X*Y</th></tr>");
     $('#tablaValores tr').each(function() {
         x=parseFloat($(this).find(".x").val());
@@ -33,10 +32,6 @@ $("#Generar").click(function(){
             valoresLineales.push({
                 x: Math.log(x),
                 y: Math.log(y)
-            });
-            valoresGrafico.push({
-                x: x,
-                y: y
             });
         }
     });
@@ -53,7 +48,7 @@ $("#Generar").click(function(){
 
     $("#resultado").html("Funcion aproximada: Y=(" + Math.exp(aproximacion.b) + ")* X ^" + " (" + aproximacion.m + ")" + "</br>");
 
-    // Ajuste para Graficar Funcion Aproximante
+    // Ajuste para Graficar Funcion Aproximante Potencial
 
     var datos = {
         x: [],
