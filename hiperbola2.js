@@ -15,6 +15,12 @@
 
     $("#Generar").click(function(){
       var valores = [];
+      if($("#decim").val()isNumeric()){
+        var decimales = $("#decim").val()isNumeric();
+      } else {
+          var decimales = $("#decim").val()isNumeric();
+      }
+
         $("#tablaResultados").html("<tr><th></th><th>1/X</th><th>1/Y</th><th>1/X^2</th><th>1/xy</th></tr>");
         $('#tablaValores tr').each(function() {
             x=parseFloat($(this).find(".x").val());
