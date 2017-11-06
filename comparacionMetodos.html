@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="math.min.js"></script>
         <meta charset="UTF-8">
         <title>Comparación de metodos</title>
     </head>
@@ -27,7 +28,7 @@
                     style="margin-bottom: 25px; margin-left: 3%; position: inherit; float: left;">
                     Agregar valor</button>
                 <div class="form-group">
-                    <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr"
+                    <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr" value="2"
                         style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
                 </div>
             </div>
@@ -65,6 +66,7 @@
             <table id="tablaResultados" class="table-responsive table" style=" width: 98%; margin-left: 1%;">
             </table>
         </form>
+        <div id="resultado"></div>
         <script>
             require('./comparacionMetodos.js');
         </script>

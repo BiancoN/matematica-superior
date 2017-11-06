@@ -5,11 +5,11 @@ function aproximacionLineal(valores) {
     var m = pendiente(sumatorias, n);
     var b = altura(sumatorias, n, m);
     datos = datosDeFuncionLineal(datos, m, b);
-    var errores = erroresAproximacionLineal(datos);
-    return aproximacion(sumatorias, m, b, datos, errores);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Lineal', sumatorias, m, b, datos, errores);
 };
 
-function erroresAproximacionLineal(datos) {
+function erroresAproximacion(datos) {
     var errores = [];
     var total = 0;
     for(i = 0; i < datos.x.length; i++) {
@@ -53,7 +53,8 @@ function aproximacionHiperbolica(valores) {
     a = 1/m
     b = h*a
     datos = datosDeFuncionHiperbolica(datos,a,b);
-    return aproximacion(sumatorias,a,b,datos);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Hiperbolica', sumatorias, a, b, datos, errores);
 };
 
 function sumatoriaHiperbolica(valores){
@@ -89,7 +90,8 @@ function aproximacionHiperbolicaSat(valores) {
     a = 1/h
     b = m*a
     datos = datosDeFuncionHiperbolicaSat(datos,a,b);
-    return aproximacion(sumatorias,m,b,datos);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Hiperbolica de saturacion', sumatorias, m, b, datos, errores);
 };
 function sumatoriaHiperbolicaSat(valores){
   var sumatorias = {
@@ -114,7 +116,6 @@ function datosDeFuncionHiperbolicaSat(datos,a,b){
   return datos;
 }
 
-
 function datosAGraficar(valores){
   var datos = {
       x: [],
@@ -128,25 +129,29 @@ function datosAGraficar(valores){
   return datos;
 }
 
-function aproximacion(sumatorias, a, b, datos, errores){
-  return {
-      sumatorias: sumatorias,
-      a: a.toFixed(2),
-      b: b.toFixed(2),
-      funcion: {
-          x: datos.x,
-          y: datos.funcion,
-          type: 'scatter',
-          name: 'Aproximacion funcion'
-      },
-      puntos: {
-          x: datos.x,
-          y: datos.puntos,
-          mode: 'markers',
-          name: 'Puntos tabla'
-      },
-      errores: errores
-  };
+function aproximacion(nombre, sumatorias, a, b, datos, errores, c) {
+    if(!c)
+        c = 0;
+    return {
+        nombre, nombre,
+        sumatorias: sumatorias,
+        a: a.toFixed(2),
+        b: b.toFixed(2),
+        c: c.toFixed(2),
+        funcion: {
+            x: datos.x,
+            y: datos.funcion,
+            type: 'scatter',
+            name: 'Aproximacion funcion'
+        },
+        puntos: {
+            x: datos.x,
+            y: datos.puntos,
+            mode: 'markers',
+            name: 'Puntos tabla'
+        },
+        errores: errores
+    };
 }
 
 function pendiente(sumatorias,n){
@@ -169,8 +174,96 @@ function arrayMin(array) {
     });
 }
 
+function aproximacionParabolica(valores) {
+    var datos = datosAGraficar(valores);
+    var sumatorias = sumatoriaParabola(valores);
+    var n = valores.length;
+    var coeficientes = calcularCoeficientesParabolicos(n, sumatorias);
+    datos = datosDeFuncionParabolica(datos, coeficientes);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Parabolica', sumatorias, coeficientes[2][0], coeficientes[1][0], datos, errores,
+        coeficientes[0][0]);
+}
+
+function sumatoriaParabola(valores) {
+    var sumatorias = {
+        x: 0,
+        y: 0,
+        xx: 0,
+        xxx: 0,
+        xxxx: 0,
+        xy: 0,
+        xxy: 0
+    };
+    valores.forEach(function(valor) {
+        sumatorias.x += valor.x;
+        sumatorias.xx += Math.pow(valor.x, 2);
+        sumatorias.xxx += Math.pow(valor.x, 3);
+        sumatorias.xxxx += Math.pow(valor.x, 4);
+        sumatorias.y += valor.y;
+        sumatorias.xy += valor.x * valor.y;
+        sumatorias.xxy += Math.pow(valor.x, 2) * valor.y;
+    });
+    return sumatorias;
+};
+
+function calcularCoeficientesParabolicos(n, sumatorias) {
+    var m = [[n, sumatorias.x, sumatorias.xx], [sumatorias.x, sumatorias.xx, sumatorias.xxx],
+        [sumatorias.xx, sumatorias.xxx, sumatorias.xxxx]];
+    var s = [sumatorias.y, sumatorias.xy, sumatorias.xxy];
+    return math.lusolve(m, s);
+};
+
+function datosDeFuncionParabolica(datos, coeficientes) {
+    var a = coeficientes[2][0];
+    var b = coeficientes[1][0];
+    var c = coeficientes[0][0];
+    datos.x.forEach(function(x) {
+        var y = a * x * x + b * x + c;
+        datos.funcion.push(y);
+    })
+    return datos;
+};
+
+function redondear(valor, decimales) {
+    var redondeo = 10 ** decimales;
+    return Math.round(valor * redondeo) / redondeo;
+};
+
+function suavizar(funcion, a, b, c) {
+    var funcionSuave = Object.assign({}, funcion);
+    funcionSuave.x = [];
+    funcionSuave.y = [];
+    var minimo = arrayMin(funcion.x);
+    var maximo = arrayMax(funcion.x);
+    for(i = 0; i < 1000; i++) {
+        funcionSuave.x[i] = minimo + i * ((maximo - minimo) / 1000);
+        funcionSuave.y[i]= parseFloat(c) + funcionSuave.x[i] * parseFloat(b) +
+            funcionSuave.x[i] * funcionSuave.x[i] * parseFloat(a);
+    }
+    return funcionSuave;
+};
+
+function comparar(aproximaciones) {
+    var mejorAproximacion = aproximaciones.reduce(function(a, b) {
+        if(isNaN(a.errores.total))
+            return b;
+        else if(isNaN(b.errores.total))
+            return a;
+        else if(a.errores.total <= b.errores.total)
+            return a;
+        else
+            return b;
+    });
+    return mejorAproximacion.nombre;
+};
+
 module.exports = {
-  aproximacionLineal: aproximacionLineal,
-  aproximacionHiperbolica: aproximacionHiperbolica,
-  aproximacionHiperbolicaSat: aproximacionHiperbolicaSat
+    redondear: redondear,
+    suavizar: suavizar,
+    comparar: comparar,
+    aproximacionLineal: aproximacionLineal,
+    aproximacionHiperbolica: aproximacionHiperbolica,
+    aproximacionHiperbolicaSat: aproximacionHiperbolicaSat,
+    aproximacionParabolica: aproximacionParabolica
 };

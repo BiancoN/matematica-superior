@@ -17,6 +17,8 @@ $("#Generar").click(function(){
         }
     });
 
+    var decimales = parseInt($('#usr').val());
+
     var aproximaciones = getAproximaciones(valores);
     $("#tablaResultados").html("<tr><th colspan=\"3\" style=\"text-align: center;\">Datos</th><th colspan=\"" +
         aproximaciones.count+ "\" style=\"text-align: center;\">Modelos</th>" +
@@ -27,12 +29,15 @@ $("#Generar").click(function(){
 
     for(i = 0; i < valores.length; i++) {
         var fila = "<tr><td style=\"text-align: center;\">" + i + "</td><td style=\"text-align: center;\">" +
-            valores[i].x + "</td><td style=\"text-align: center;\">" + valores[i].y + "</td>";
+            aproximador.redondear(valores[i].x, decimales) + "</td><td style=\"text-align: center;\">" +
+            aproximador.redondear(valores[i].y, decimales) + "</td>";
         aproximaciones.aproximaciones.forEach(function(aproximacion) {
-            fila += "<td style=\"text-align: center;\">" + aproximacion.funcion.y[i] + "</td>";
+            fila += "<td style=\"text-align: center;\">" +
+                aproximador.redondear(aproximacion.funcion.y[i], decimales) + "</td>";
         });
         aproximaciones.aproximaciones.forEach(function(aproximacion) {
-            fila += "<td style=\"text-align: center;\">" + aproximacion.errores.errores[i] + "</td>";
+            fila += "<td style=\"text-align: center;\">" +
+                aproximador.redondear(aproximacion.errores.errores[i], decimales) + "</td>";
         });
         fila += "</tr>";
         $("#tablaResultados").append(fila);
@@ -42,10 +47,15 @@ $("#Generar").click(function(){
         totales += "<td></td>";
     });
     aproximaciones.aproximaciones.forEach(function(aproximacion) {
-        totales += "<td style=\"text-align: center;\">" + aproximacion.errores.total + "</td>";
+        totales += "<td style=\"text-align: center;\">" +
+            aproximador.redondear(aproximacion.errores.total, decimales) + "</td>";
     });
     totales += "</tr>";
     $("#tablaResultados").append(totales)
+
+    var mejorAproximacion = aproximador.comparar(aproximaciones.aproximaciones);
+
+    $("#resultado").html("El metodo que mejor aproxima es: " + mejorAproximacion);
 });
 
 function getAproximaciones(valores) {
@@ -61,6 +71,13 @@ function getAproximaciones(valores) {
     if($('#parabolica').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Parabolica</th>";
         count++;
+        try {
+            var aproximacionParabolica = aproximador.aproximacionParabolica(valores);
+            aproximaciones.push(aproximacionParabolica);
+        } catch(err) {
+            console.log(err)
+            alert("Ingrese mas valores para poder realizar la aproximacion parabolica");
+        }
     }
     if($('#potencial').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Potencial</th>";
@@ -73,10 +90,14 @@ function getAproximaciones(valores) {
     if($('#hiperbolica').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Hiperbolica</th>";
         count++;
+        var aproximacionHiperbolica = aproximador.aproximacionHiperbolica(valores);
+        aproximaciones.push(aproximacionHiperbolica);
     }
     if($('#saturacion').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Hiperbolica de saturacion</th>";
         count++;
+        var aproximacionHiperbolicaSat = aproximador.aproximacionHiperbolicaSat(valores);
+        aproximaciones.push(aproximacionHiperbolicaSat);
     }
     headers += headers;
     return {headers: headers, count: count, aproximaciones: aproximaciones};
