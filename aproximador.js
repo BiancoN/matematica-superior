@@ -2,11 +2,23 @@ function aproximacionLineal(valores) {
     var datos = datosAGraficar(valores);
     var sumatorias = sumatoriaLineal(valores);
     var n = valores.length;
-    var m = pendiente(sumatorias,n);
-    var b = altura(sumatorias,n,m);
-    datos = datosDeFuncionLineal(datos,m,b);
-    return aproximacion(sumatorias,m,b,datos);
+    var m = pendiente(sumatorias, n);
+    var b = altura(sumatorias, n, m);
+    datos = datosDeFuncionLineal(datos, m, b);
+    var errores = erroresAproximacionLineal(datos);
+    return aproximacion(sumatorias, m, b, datos, errores);
 };
+
+function erroresAproximacionLineal(datos) {
+    var errores = [];
+    var total = 0;
+    for(i = 0; i < datos.x.length; i++) {
+        var error = Math.pow(datos.puntos[i] - datos.funcion[i], 2);
+        total += error;
+        errores.push(error);
+    }
+    return {errores: errores, total: total};
+}
 
 function sumatoriaLineal(valores){
   var sumatorias = {
@@ -116,7 +128,7 @@ function datosAGraficar(valores){
   return datos;
 }
 
-function aproximacion(sumatorias,a,b,datos){
+function aproximacion(sumatorias, a, b, datos, errores){
   return {
       sumatorias: sumatorias,
       a: a.toFixed(2),
@@ -132,7 +144,8 @@ function aproximacion(sumatorias,a,b,datos){
           y: datos.puntos,
           mode: 'markers',
           name: 'Puntos tabla'
-      }
+      },
+      errores: errores
   };
 }
 

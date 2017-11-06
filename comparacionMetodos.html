@@ -5,6 +5,70 @@
         <title>Comparación de metodos</title>
     </head>
     <body>
-        
+        <h1 class="titulo-principal">Comparacion de metodos</h1>
+        <p class="inicio"><a href="index.html">Volver al inicio</a></p>
+        <br/>
+        <script>window.$ = window.jQuery = require('jquery');</script>
+        <form class="formulario">
+            <div class="table-responsive">
+                <table id="tablaValores" class="table" style=" width: 98%; margin-left: 1%;">
+                    <tr>
+                        <th>X</th>
+                        <th>Y</th>
+                    </tr>
+                    <tr>
+                        <td><input style="width: 100%; border: 0px;" class="x" type="number"></td>
+                        <td><input style="width: 100%; border: 0px;" type="number" class="y"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="row">
+                <button type="button" id="Agregar" class="btn btn-primary"
+                    style="margin-bottom: 25px; margin-left: 3%; position: inherit; float: left;">
+                    Agregar valor</button>
+                <div class="form-group">
+                    <input type="number" placeholder="Cantidad de decimales" class="form-control" id="usr"
+                        style="margin-bottom: 25px; margin-right: 60%; width: 23%;float: right; position: inherit;">
+                </div>
+            </div>
+            <div class="row col-md-12" style="margin-left: 1%;">
+                <h4><b>Aproximaciones a comparar: </b></h4>
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="lineal" value="lineal" checked>
+                        Lineal
+                    </label>
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="parabolica" value="parabolica">
+                        Parabolica
+                    </label>
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="potencial" value="potencial" >
+                        Potencial
+                    </label>
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="exponencial" value="exponencial">
+                        Exponencial
+                    </label>
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="hiperbolica" value="hiperbolica">
+                        Hiperbolica
+                    </label>
+                    <label class="form-check-label" style="margin-right: 1%;">
+                        <input class="form-check-input" type="checkbox" id="saturacion" value="saturacion">
+                        Hiperbolica de saturacion
+                    </label>
+                </div>
+            </div>
+            <button type="button" id="Generar" class="btn btn-warning" style=" margin-left: 1%; margin-bottom: 25px;">
+                Generar tabla</button>
+            <table id="tablaResultados" class="table-responsive table" style=" width: 98%; margin-left: 1%;">
+            </table>
+        </form>
+        <script>
+            require('./comparacionMetodos.js');
+        </script>
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     </body>
 </html>
