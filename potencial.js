@@ -22,59 +22,23 @@ $("#Generar").click(function(){
     $('#tablaValores tr').each(function() {
         x=parseFloat($(this).find(".x").val());
         y=parseFloat($(this).find(".y").val());
-        if($.isNumeric(x)&&$.isNumeric(y)){
-            valores.push({
-                x: x,
-                y: y,
-                X: Math.log(x),
-                Y: Math.log(y)
-            });
-            valoresLineales.push({
-                x: Math.log(x),
-                y: Math.log(y)
-            });
+        if($.isNumeric(x) && $.isNumeric(y)
+            && x > 0 && y > 0){
+            valores.push({x: x,y: y});
         }
     });
 
     valores.forEach(function(valor) {
         $("#tablaResultados").append("<tr><td></td><td>" + valor.x + "</td>" + "<td>" + valor.y + "</td>" + "<td>" +
-            valor.X + "</td>"+"<td>" + valor.Y + "</td>"+"<td>" + (valor.X * valor.X) + "</td>"+"<td>" + (valor.X * valor.Y) + "</td></tr>");
+            Math.log(valor.x) + "</td>"+"<td>" + Math.log(valor.y) + "</td>"+"<td>" + (Math.log(valor.x) * Math.log(valor.x)) + "</td>"+"<td>" + (Math.log(valor.x) * Math.log(valor.y)) + "</td></tr>");
     });
 
-    var aproximacion = aproximador.aproximacionLineal(valoresLineales);
+    var aproximacion = aproximador.potencial(valores);
 
     $("#tablaResultados").append("<tr><td>Σ</td><td></td><td></td><td>" + aproximacion.sumatorias.x + "</td>" + "<td>" + aproximacion.sumatorias.y + "</td>" +
         "<td>" + aproximacion.sumatorias.xx + "</td>" + "<td>" + aproximacion.sumatorias.xy + "</td></tr>");
 
-    $("#resultado").html("Funcion aproximada: Y=(" + Math.exp(aproximacion.b) + ")* X ^" + " (" + aproximacion.m + ")" + "</br>");
+    $("#resultado").html("Funcion aproximada: Y=(" + aproximacion.a + ")* X ^" + " (" + aproximacion.b + ")" + "</br>");
 
-    // Ajuste para Graficar Funcion Aproximante Potencial
-
-    var datos = {
-        x: [],
-        puntos: [],
-        funcion: []
-    };
-    valores.forEach(function(value) {
-        datos.x.push(value.x);
-        datos.puntos.push(value.y);
-        var funcy = Math.exp(aproximacion.b) * Math.pow(value.x , (aproximacion.m));
-        datos.funcion.push(funcy);
-    });
-
-    var puntos = {
-        x: datos.x,
-        y: datos.puntos,
-        mode: 'markers',
-        name: 'Puntos tabla'
-    };
-    var funcionAproximante = {
-        x: datos.x,
-        y: datos.funcion,
-        type: 'scatter',
-        name: 'Aproximacion funcion'
-    };
-
-
-    Plotly.newPlot('myDiv', [puntos, funcionAproximante]);
+    Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
 });

@@ -15,18 +15,11 @@ var aproximador = require('./aproximador');
 
     $("#Generar").click(function(){
       var valores = [];
-      if($("#decim").val()isNumeric()){
-        var decimales = $("#decim").val()isNumeric();
-      } else {
-          var decimales = $("#decim").val()isNumeric();
-      }
-
         $("#tablaResultados").html("<tr><th></th><th>X</th><th>1/Y</th><th>X^2</th><th>X/y</th></tr>");
         $('#tablaValores tr').each(function() {
           x = parseFloat($(this).find(".x").val());
           y = parseFloat($(this).find(".y").val());
-          if($.isNumeric(x)
-              && $.isNumeric(y)
+          if($.isNumeric(x) && $.isNumeric(y)
               && y != 0){
                 valores.push({x: x,y: y});
           }
@@ -37,7 +30,7 @@ var aproximador = require('./aproximador');
                 (valor.x * valor.x) + "</td>"+"<td>" + (valor.x / valor.y) + "</td></tr>");
         });
 
-        var aproximacion = aproximador.aproximacionHiperbolica(valores);
+        var aproximacion = aproximador.hiperbolica(valores);
 
         $("#tablaResultados").append("<tr><td>Σ</td><td>" + aproximacion.sumatorias.x + "</td>" + "<td>" + aproximacion.sumatorias.y + "</td>" +
             "<td>" + aproximacion.sumatorias.xx + "</td>" + "<td>" + aproximacion.sumatorias.xy + "</td></tr>");

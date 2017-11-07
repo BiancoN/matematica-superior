@@ -1,14 +1,3 @@
-function aproximacionLineal(valores) {
-    var datos = datosAGraficar(valores);
-    var sumatorias = sumatoriaLineal(valores);
-    var n = valores.length;
-    var m = pendiente(sumatorias, n);
-    var b = altura(sumatorias, n, m);
-    datos = datosDeFuncionLineal(datos, m, b);
-    var errores = erroresAproximacion(datos);
-    return aproximacion('Lineal', sumatorias, m, b, datos, errores);
-};
-
 function erroresAproximacion(datos) {
     var errores = [];
     var total = 0;
@@ -19,7 +8,16 @@ function erroresAproximacion(datos) {
     }
     return {errores: errores, total: total};
 }
-
+function aproximacionLineal(valores) {
+    var datos = datosAGraficar(valores);
+    var sumatorias = sumatoriaLineal(valores);
+    var n = valores.length;
+    var m = pendiente(sumatorias, n);
+    var h = altura(sumatorias, n, m);
+    datos = datosDeFuncionLineal(datos, m, h);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Lineal', sumatorias, m, h, datos, errores);
+};
 function sumatoriaLineal(valores){
   var sumatorias = {
       x: 0,
@@ -91,7 +89,7 @@ function aproximacionHiperbolicaSat(valores) {
     b = m*a
     datos = datosDeFuncionHiperbolicaSat(datos,a,b);
     var errores = erroresAproximacion(datos);
-    return aproximacion('Hiperbolica de saturacion', sumatorias, m, b, datos, errores);
+    return aproximacion('Hiperbolica de saturacion', sumatorias, a, b, datos, errores);
 };
 function sumatoriaHiperbolicaSat(valores){
   var sumatorias = {
@@ -115,6 +113,81 @@ function datosDeFuncionHiperbolicaSat(datos,a,b){
   });
   return datos;
 }
+
+function aproximacionExp(valores) {
+    var datos = datosAGraficar(valores);
+    var sumatorias = sumatoriaExp(valores);
+    var n = valores.length;
+    var m = pendiente(sumatorias, n);
+    var h = altura(sumatorias, n, m);
+    a = Math.exp(h)
+    b = m
+    datos = datosDeFuncionExp(datos, a, b);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Exponencial', sumatorias, a, b, datos, errores);
+};
+
+function sumatoriaExp(valores){
+  var sumatorias = {
+      x: 0,
+      y: 0,
+      xx: 0,
+      xy: 0
+  };
+  valores.forEach(function(value) {
+      sumatorias.x += value.x;
+      sumatorias.y += Math.log(value.y);
+      sumatorias.xx += value.x * value.x;
+      sumatorias.xy += value.x * Math.log(value.y);
+  });
+  return sumatorias;
+};
+
+function datosDeFuncionExp(datos,a,b){
+  datos.x.forEach(function(x) {
+      var y = a * Math.exp(b * x)
+      datos.funcion.push(y);
+  });
+  return datos;
+};
+
+function aproximacionPot(valores) {
+    var datos = datosAGraficar(valores);
+    var sumatorias = sumatoriaPot(valores);
+    var n = valores.length;
+    var m = pendiente(sumatorias, n);
+    var h = altura(sumatorias, n, m);
+    a = Math.exp(h)
+    b = m
+    datos = datosDeFuncionPot(datos, a, b);
+    var errores = erroresAproximacion(datos);
+    return aproximacion('Potencial', sumatorias, a, b, datos, errores);
+};
+
+function sumatoriaPot(valores){
+  var sumatorias = {
+      x: 0,
+      y: 0,
+      xx: 0,
+      xy: 0
+  };
+  valores.forEach(function(value) {
+      sumatorias.x += Math.log(value.x);
+      sumatorias.y += Math.log(value.y);
+      sumatorias.xx += Math.log(value.x) * Math.log(value.x);
+      sumatorias.xy += Math.log(value.x) * Math.log(value.y);
+  });
+  return sumatorias;
+};
+
+function datosDeFuncionPot(datos,a,b){
+  datos.x.forEach(function(x) {
+      var y = a * Math.pow(x,b)
+      datos.funcion.push(y);
+  });
+  return datos;
+};
+
 
 function datosAGraficar(valores){
   var datos = {
@@ -262,8 +335,10 @@ module.exports = {
     redondear: redondear,
     suavizar: suavizar,
     comparar: comparar,
-    aproximacionLineal: aproximacionLineal,
-    aproximacionHiperbolica: aproximacionHiperbolica,
-    aproximacionHiperbolicaSat: aproximacionHiperbolicaSat,
-    aproximacionParabolica: aproximacionParabolica
+    lineal: aproximacionLineal,
+    exponencial: aproximacionExp,
+    potencial: aproximacionPot,
+    hiperbolica: aproximacionHiperbolica,
+    hiperbolicaSat: aproximacionHiperbolicaSat,
+    parabolica: aproximacionParabolica
 };

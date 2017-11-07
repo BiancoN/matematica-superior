@@ -1,5 +1,6 @@
 require('./jquery-3.2.1.min');
 var aproximador = require('./aproximador');
+
 $( document ).ready(function() {
     $("#masCampos").click(function() {
         $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
@@ -21,7 +22,6 @@ $("#Generar").click(function(){
         y=parseFloat($(this).find(".y").val());
         if($.isNumeric(x)
             && $.isNumeric(y)){
-
             valores.push({x: x,y: y});
         }
     });
@@ -31,7 +31,7 @@ $("#Generar").click(function(){
             (valor.x * valor.x) + "</td>"+"<td>" + (valor.x * valor.y) + "</td></tr>");
     });
 
-    var aproximacion = aproximador.aproximacionLineal(valores);
+    var aproximacion = aproximador.lineal(valores);
 
     $("#tablaResultados").append("<tr><td>Σ</td><td>" + aproximacion.sumatorias.x + "</td>" + "<td>" + aproximacion.sumatorias.y + "</td>" +
         "<td>" + aproximacion.sumatorias.xx + "</td>" + "<td>" + aproximacion.sumatorias.xy + "</td></tr>");
