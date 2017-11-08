@@ -1,42 +1,50 @@
-    require('./jquery-3.2.1.min');
-    var aproximador = require('./aproximador');
+require('./jquery-3.2.1.min');
+var aproximador = require('./aproximador');
 
-    $( document ).ready(function() {
-        $("#masCampos").click(function() {
-            $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
-                "<td><input type=\"number\" id=\"valory\" class=\"casillero\"></td></tr>");
-        });
+$( document ).ready(function() {
+    $("#masCampos").click(function() {
+        $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
+            "<td><input type=\"number\" id=\"valory\" class=\"casillero\"></td></tr>");
+    });
+});
+
+
+$("#Agregar").click(function(){
+    $("#tablaValores").append("<tr><td> <input rype=\"number\" style=\"width: 100%; border: 0px;\" class=\"x\"></td>" +
+        "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
+});
+
+$("#Generar").click(function(){
+    var valores = [];
+    $("#tablaResultados").html("<tr><th></th><th>1/X</th><th>1/Y</th><th>1/X^2</th><th>1/xy</th></tr>");
+    $('#tablaValores tr').each(function() {
+        x=parseFloat($(this).find(".x").val());
+        y=parseFloat($(this).find(".y").val());
+        if($.isNumeric(x) && $.isNumeric(y)
+            && y != 0 && x != 0){
+            valores.push({x: x,y: y});
+        }
     });
 
+    var decimales = parseInt($("#usr").val());
 
-    $("#Agregar").click(function(){
-        $("#tablaValores").append("<tr><td> <input rype=\"number\" style=\"width: 100%; border: 0px;\" class=\"x\"></td>" +
-            "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
+    valores.forEach(function(valor) {
+        $("#tablaResultados").append("<tr><td></td><td>" + aproximador.redondear(1/valor.x, decimales) +
+            "</td><td>" + aproximador.redondear(1/valor.y, decimales) + "</td><td>" +
+            aproximador.redondear(1/(valor.x * valor.x), decimales) + "</td><td>" +
+            aproximador.redondear(1/(valor.x * valor.y), decimales) + "</td></tr>");
     });
 
-    $("#Generar").click(function(){
-      var valores = [];
-        $("#tablaResultados").html("<tr><th></th><th>1/X</th><th>1/Y</th><th>1/X^2</th><th>1/xy</th></tr>");
-        $('#tablaValores tr').each(function() {
-            x=parseFloat($(this).find(".x").val());
-            y=parseFloat($(this).find(".y").val());
-            if($.isNumeric(x) && $.isNumeric(y)
-              && y != 0 && x != 0){
-                valores.push({x: x,y: y});
-            }
-        });
+    var aproximacion = aproximador.hiperbolicaSat(valores);
 
-        valores.forEach(function(valor) {
-            $("#tablaResultados").append("<tr><td></td><td>" + 1/valor.x + "</td>" + "<td>" + 1/valor.y + "</td>" + "<td>" +
-                1/(valor.x * valor.x) + "</td>"+"<td>" + 1/(valor.x * valor.y) + "</td></tr>");
-        });
+    $("#tablaResultados").append("<tr><td>Σ</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.x, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.y, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.xx, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td></tr>");
 
-        var aproximacion = aproximador.hiperbolicaSat(valores);
+    $("#resultado").html("Funcion aproximada: Y = (" + aproximador.redondear(aproximacion.a, decimales) +
+        ")X/(X + (" + aproximador.redondear(aproximacion.b, decimales) + "))");
 
-        $("#tablaResultados").append("<tr><td>Σ</td><td>" + aproximacion.sumatorias.x + "</td>" + "<td>" + aproximacion.sumatorias.y + "</td>" +
-            "<td>" + aproximacion.sumatorias.xx + "</td>" + "<td>" + aproximacion.sumatorias.xy + "</td></tr>");
-
-        $("#resultado").html("Funcion aproximada: Y = ("+aproximacion.a+")X/(X +"+" ("+aproximacion.b+"))");
-
-      Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
-    });
+    Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
+});

@@ -29,7 +29,7 @@ $("#Generar").click(function(){
     var decimales = parseInt($("#usr").val());
 
     try {
-        var aproximacion = aproximador.aproximacionParabolica(valores);
+        var aproximacion = aproximador.parabolica(valores);
 
         valores.forEach(function(valor) {
             $("#tablaResultados").append("<tr><td></td><td>" + aproximador.redondear(valor.x, decimales) + "</td><td>"

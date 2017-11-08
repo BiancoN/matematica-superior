@@ -28,17 +28,26 @@ $("#Generar").click(function(){
         }
     });
 
+    var decimales = parseInt($("#usr").val());
+
     valores.forEach(function(valor) {
-        $("#tablaResultados").append("<tr><td></td><td>" + valor.x + "</td>" + "<td>" + valor.y + "</td>" + "<td>" +
-            valor.x + "</td>"+"<td>" + Math.log(valor.y) + "</td>"+"<td>" + (valor.x * valor.x) + "</td>"+"<td>" + (valor.x * Math.log(valor.y)) + "</td></tr>");
+        $("#tablaResultados").append("<tr><td></td><td>" + aproximador.redondear(valor.x, decimales) + "</td><td>" +
+            aproximador.redondear(valor.y, decimales) + "</td><td>" + aproximador.redondear(valor.x, decimales) +
+            "</td><td>" + aproximador.redondear(Math.log(valor.y), decimales) + "</td><td>" +
+            aproximador.redondear(valor.x * valor.x, decimales) + "</td><td>" +
+            aproximador.redondear(valor.x * Math.log(valor.y), decimales) + "</td></tr>");
     });
 
     var aproximacion = aproximador.exponencial(valores);
 
-    $("#tablaResultados").append("<tr><td>Σ</td><td></td><td></td><td>" + aproximacion.sumatorias.x + "</td>" + "<td>" + aproximacion.sumatorias.y + "</td>" +
-        "<td>" + aproximacion.sumatorias.xx + "</td>" + "<td>" + aproximacion.sumatorias.xy + "</td></tr>");
+    $("#tablaResultados").append("<tr><td>Σ</td><td></td><td></td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.x, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.y, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.xx, decimales) + "</td><td>" +
+        aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td></tr>");
 
-    $("#resultado").html("Funcion aproximada: Y=(" +aproximacion.a+ ")* e ^" + " (" + aproximacion.b + ") * x" + "</br>");
+    $("#resultado").html("Funcion aproximada: Y=(" + aproximador.redondear(aproximacion.a, decimales) +
+        ")* e ^ (" + aproximador.redondear(aproximacion.b, decimales)+ ") * x</br>");
 
     Plotly.newPlot('myDiv',[aproximacion.funcion, aproximacion.puntos]);
 });

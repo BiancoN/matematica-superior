@@ -51,11 +51,11 @@ $("#Generar").click(function(){
             aproximador.redondear(aproximacion.errores.total, decimales) + "</td>";
     });
     totales += "</tr>";
-    $("#tablaResultados").append(totales)
+    $("#tablaResultados").append(totales);
 
     var mejorAproximacion = aproximador.comparar(aproximaciones.aproximaciones);
 
-    $("#resultado").html("El metodo que mejor aproxima es: " + mejorAproximacion);
+    $("#resultado").html("<label>La aproximacion mas exacta es: " + mejorAproximacion + "</label>");
 });
 
 function getAproximaciones(valores) {
@@ -65,14 +65,14 @@ function getAproximaciones(valores) {
     if($('#lineal').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Lineal</th>";
         count++;
-        var aproximacionLineal = aproximador.aproximacionLineal(valores);
+        var aproximacionLineal = aproximador.lineal(valores);
         aproximaciones.push(aproximacionLineal);
     }
     if($('#parabolica').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Parabolica</th>";
         count++;
         try {
-            var aproximacionParabolica = aproximador.aproximacionParabolica(valores);
+            var aproximacionParabolica = aproximador.parabolica(valores);
             aproximaciones.push(aproximacionParabolica);
         } catch(err) {
             console.log(err)
@@ -82,21 +82,25 @@ function getAproximaciones(valores) {
     if($('#potencial').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Potencial</th>";
         count++;
+        var aproximacionPotencial = aproximador.potencial(valores);
+        aproximaciones.push(aproximacionPotencial);
     }
     if($('#exponencial').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Exponencial</th>";
         count++;
+        var aproximacionExponencial = aproximador.exponencial(valores);
+        aproximaciones.push(aproximacionExponencial);
     }
     if($('#hiperbolica').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Hiperbolica</th>";
         count++;
-        var aproximacionHiperbolica = aproximador.aproximacionHiperbolica(valores);
+        var aproximacionHiperbolica = aproximador.hiperbolica(valores);
         aproximaciones.push(aproximacionHiperbolica);
     }
     if($('#saturacion').prop('checked')) {
         headers += "<th style=\"text-align: center;\">Hiperbolica de saturacion</th>";
         count++;
-        var aproximacionHiperbolicaSat = aproximador.aproximacionHiperbolicaSat(valores);
+        var aproximacionHiperbolicaSat = aproximador.hiperbolicaSat(valores);
         aproximaciones.push(aproximacionHiperbolicaSat);
     }
     headers += headers;
