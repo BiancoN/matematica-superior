@@ -8,15 +8,13 @@ $( document ).ready(function() {
     });
 });
 
-var valores = [];
 $("#Agregar").click(function(){
     $("#tablaValores").append("<tr><td> <input rype=\"number\" style=\"width: 100%; border: 0px;\" class=\"x\"></td>" +
     "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
 });
 
 $("#Generar").click(function(){
-    valores = [];
-    valoresLineales = [];
+    var valores = [];
     $("#tablaResultados").html("<tr><th></th><th>x</th><th>y</th><th>X = ln x</th><th>Y = ln y</th><th>X^2</th><th>X*Y</th></tr>");
     $('#tablaValores tr').each(function() {
         x=parseFloat($(this).find(".x").val());

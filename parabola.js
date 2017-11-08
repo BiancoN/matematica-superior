@@ -47,15 +47,12 @@ $("#Generar").click(function(){
             aproximador.redondear(aproximacion.sumatorias.xxxx, decimales) + "</td><td>" +
             aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td><td>" +
             aproximador.redondear(aproximacion.sumatorias.xxy, decimales) + "</td></tr>");
-    
+
         $("#resultado").html("Funcion aproximada: Y=(" + aproximador.redondear(aproximacion.a, decimales) +
             ")*X^2 + (" + aproximador.redondear(aproximacion.b, decimales) + ")*X + (" +
             aproximador.redondear(aproximacion.c, decimales) + ")");
-        
-        var funcionAproximacion = aproximador.suavizar(aproximacion.funcion,
-            aproximacion.a, aproximacion.b, aproximacion.c);
 
-        Plotly.newPlot('myDiv', [funcionAproximacion, aproximacion.puntos]);
+        Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
 
     } catch(err) {
         console.log(err)

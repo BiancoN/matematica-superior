@@ -6,7 +6,6 @@ $( document ).ready(function() {
         $("#tabla").append("<tr><td><input type=\"number\" id=\"valorx\" class=\"casillero\"></td>" +
             "<td><input type=\"number\" id=\"valory\" class=\"casillero\"></td></tr>");
     });
-
 });
 
 $("#Agregar").click(function(){
@@ -43,7 +42,7 @@ $("#Generar").click(function(){
         aproximador.redondear(aproximacion.sumatorias.xx, decimales) + "</td><td>" +
         aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td></tr>");
 
-    $("#resultado").html("Funcion aproximada: Y = (" + aproximador.redondear(a, decimales) + ")/(X + (" + 
+    $("#resultado").html("Funcion aproximada: Y = (" + aproximador.redondear(a, decimales) + ")/(X + (" +
         aproximador.redondear(b, decimales) + "))");
 
     Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
