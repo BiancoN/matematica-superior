@@ -12,3 +12,8 @@
 
 ## Uso
 * npm start
+
+## Build
+* npm install electron-packager -g
+* Windows: electron-packager . aproximador --platform=win32
+* Linux: electron-packager . aproximador --platform=linux
