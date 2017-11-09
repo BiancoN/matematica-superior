@@ -14,7 +14,10 @@ $("#Agregar").click(function(){
         "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
 });
 
-$("#Generar").click(function(){
+var decimales ;
+var aproximacion ;
+
+$("#GenerarTabla").click(function(){
   var valores = [];
     $("#tablaResultados").html("<tr><th></th><th>X</th><th>Y</th><th>X^2</th><th>YX</th></tr>");
     $('#tablaValores tr').each(function() {
@@ -26,7 +29,7 @@ $("#Generar").click(function(){
         }
     });
 
-    var decimales = parseInt($("#usr").val());
+    decimales = parseInt($("#usr").val());
 
     valores.forEach(function(valor) {
         $("#tablaResultados").append("<tr><td></td><td>" + aproximador.redondear(valor.x, decimales) + "</td><td>" +
@@ -35,15 +38,23 @@ $("#Generar").click(function(){
             aproximador.redondear(valor.x * valor.y, decimales) + "</td></tr>");
     });
 
-    var aproximacion = aproximador.lineal(valores);
+    aproximacion = aproximador.lineal(valores);
 
     $("#tablaResultados").append("<tr><td>Σ</td><td>" + aproximador.redondear(aproximacion.sumatorias.x, decimales) +
         "</td><td>" + aproximador.redondear(aproximacion.sumatorias.y, decimales) + "</td><td>" +
         aproximador.redondear(aproximacion.sumatorias.xx, decimales) + "</td><td>" +
         aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td></tr>");
+});
+
+$("#GenerarFuncion").click(function(){
 
     $("#resultado").html("Funcion aproximada: Y=(" + aproximador.redondear(aproximacion.a, decimales) + ")*X + (" +
         aproximador.redondear(aproximacion.b, decimales) + ")");
 
+});
+
+$("#GenerarGrafica").click(function(){
     Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
 });
+
+

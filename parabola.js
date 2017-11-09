@@ -13,7 +13,12 @@ $("#Agregar").click(function(){
         "<td><input rype=\"number\" style=\"width: 100%; border: 0px;\"class=\"y\"></td></tr>");
 });
 
-$("#Generar").click(function(){
+
+var decimales;
+var aproximacion;
+
+
+$("#GenerarTabla").click(function(){
     var valores = [];
     $("#tablaResultados").html(
         "<tr><th></th><th>X</th><th>Y</th><th>X^2</th><th>X^3</th><th>X^4</th><th>XY</th><th>X^2Y</th></tr>");
@@ -26,10 +31,10 @@ $("#Generar").click(function(){
         }
     });
 
-    var decimales = parseInt($("#usr").val());
+    decimales = parseInt($("#usr").val());
 
     try {
-        var aproximacion = aproximador.parabolica(valores);
+        aproximacion = aproximador.parabolica(valores);
 
         valores.forEach(function(valor) {
             $("#tablaResultados").append("<tr><td></td><td>" + aproximador.redondear(valor.x, decimales) + "</td><td>"
@@ -47,15 +52,26 @@ $("#Generar").click(function(){
             aproximador.redondear(aproximacion.sumatorias.xxxx, decimales) + "</td><td>" +
             aproximador.redondear(aproximacion.sumatorias.xy, decimales) + "</td><td>" +
             aproximador.redondear(aproximacion.sumatorias.xxy, decimales) + "</td></tr>");
+    } catch(err) {
+        console.log(err)
+        alert("La matriz no puede ser resuelta porque es singular (ingresar mas valores)");
+    }
+
+    });
+
+$("#GenerarFuncion").click(function(){
 
         $("#resultado").html("Funcion aproximada: Y=(" + aproximador.redondear(aproximacion.a, decimales) +
             ")*X^2 + (" + aproximador.redondear(aproximacion.b, decimales) + ")*X + (" +
             aproximador.redondear(aproximacion.c, decimales) + ")");
 
+});
+
+
+$("#GenerarGrafica").click(function(){
         Plotly.newPlot('myDiv', [aproximacion.funcion, aproximacion.puntos]);
 
-    } catch(err) {
-        console.log(err)
-        alert("La matriz no puede ser resuelta porque es singular (ingresar mas valores)");
-    }
 });
+
+
+
